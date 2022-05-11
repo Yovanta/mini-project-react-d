@@ -67,7 +67,7 @@ const WrapperInputPengeluaran = styled.div`
   box-shadow: 3px 3px #282c40;
   background-color: #fff;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     width: 100%;
     margin-bottom: 10%;
   }
@@ -76,6 +76,10 @@ const WrapTitle = styled.div`
  text-align: center;
  font-size: 2rem;
   font-weight: bold;
+
+  @media (max-width: 390px) {
+    font-size: 1.5rem;
+  }
 `
 const ItemInput = styled.div`
   [type="number"],
@@ -96,12 +100,12 @@ const Button = styled.div`
   border-radius: 20px;
   cursor: pointer;
 
-  @media (max-width: 800px) {
-    padding: 10px 0;
-    width: 30%;
+  @media (max-width: 900px) {
+    padding: 10px 20px;
+    width: 50%;
   }
-  @media (max-width: 428px) {
-    padding: 10px 0;
+  @media (max-width: 390px) {
+    padding: 10px 20px;
     width: 50%;
   }
 `;
@@ -115,10 +119,10 @@ const WrapButton = styled.div`
     border-radius: 10px;
   }
 
-  @media (max-width: 800px) {
-    column-gap: 40%;
+  @media (max-width: 900px) {
+    column-gap: 20%;
   }
-  @media (max-width: 428px) {
-    column-gap: 30px;
+  @media (max-width: 390px) {
+    column-gap: 10px;
   }
 `;

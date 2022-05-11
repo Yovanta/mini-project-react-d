@@ -11,7 +11,7 @@ export default function PageNotFound() {
       </WrapperImage>
       <WrapperButton>
         <Button>
-            <Link to="/">RETURN TO HOME</Link>
+          <Link to="/">RETURN TO HOME</Link>
         </Button>
       </WrapperButton>
     </WrapperNotFound>
@@ -19,13 +19,12 @@ export default function PageNotFound() {
 }
 
 const WrapperNotFound = styled.div`
-display: flex;
-flex-direction: column;
-row-gap: 60px;
-padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+  padding: 50px 0;
   background-color: #000;
   display: relative;
-  
 `;
 
 const WrapperImage = styled.div`
@@ -42,6 +41,6 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const WrapperButton = styled.div`
-display: flex;
-justify-content: center;
-`
+  display: flex;
+  justify-content: center;
+`;

@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from '@emotion/styled';
 
 export default function SaldoAkhir(props) {
-  console.log(props.totalIncomes);
-
   const saldoAkhir = props.totalIncomes - props.totalPengeluaran;
+
   return (
     <WrapperSaldoAkhir>
       <WrapSaldo>
@@ -17,7 +16,7 @@ export default function SaldoAkhir(props) {
       </WrapSaldo>
       <hr style={{border: '1px solid black'}}/>
       <WrapSaldo>
-      <h2>Saldo Akhir </h2>
+      <h2>Saldo Akhir</h2>
         {saldoAkhir}
       </WrapSaldo>
     </WrapperSaldoAkhir>

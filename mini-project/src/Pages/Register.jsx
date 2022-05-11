@@ -27,11 +27,12 @@ export default function Register() {
 
   const handleClickPassword = () => {
     setIsPasswordShown(!isPaswordShown);
-  }
+  };
 
   const regexName = /^[A-Za-z ]*$/;
   const regexUsername = /^[a-zA-Z0-9]+$/;
-  const RegexPassword = /(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*/;
+  const RegexPassword =
+    /(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*/;
 
   const [error, setError] = useState(errorData.email);
   const [error1, setError1] = useState(errorData.nama);
@@ -131,7 +132,9 @@ export default function Register() {
         <Header />
         <div>
           <WrapperInputRegister onSubmit={() => insertUser()}>
-            <h1 className="text-5xl font-bold text-center m-4 mb-6">Register User</h1>
+            <h1 className="text-5xl font-bold text-center m-4 mb-6">
+              Register User
+            </h1>
             <InputStyled
               type="email"
               name="email"
@@ -157,13 +160,15 @@ export default function Register() {
             />
             <span className="text-red-600 mb-2 text-center">{error2}</span>
             <InputStyled
-              type={(isPaswordShown) ? "text" : "password"}
+              type={isPaswordShown ? "text" : "password"}
               name="password"
               value={data.password}
               placeholder="password"
               onChange={handleChangeInput}
             />
-            <button className="show-password" onClick={handleClickPassword}>{(isPaswordShown) ? <AiFillEyeInvisible/> : <AiFillEye/>}</button>  
+            <button className="show-password" onClick={handleClickPassword}>
+              {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </button>
             <span className="text-red-600 mb-2 text-center">{error3}</span>
 
             <Link to="/login">
@@ -206,25 +211,37 @@ const WrapperInputRegister = styled.div`
   flex-direction: column;
   padding: 10px;
   align-items: center;
-  width: 40%;
+  width: 50%;
   border-radius: 10px;
   row-gap: 8px;
 
-  h1{
+  h1 {
     text-shadow: 2px 3px #636161;
-    color: #FFF76A;
+    color: #fff76a;
+    font-size: 2.5rem;
   }
-  .show-password{
+  .show-password {
     cursor: pointer;
     position: absolute;
-    margin-top: 23%;
-    margin-left: 25%;
+    top: 83%;
+    left: 42%;
   }
   @media (max-width: 900px) {
     width: 80%;
+    .show-password {
+      top: 90%;
+      left: 65%;
+    }
+  }
+
+  @media (max-width: 390px) {
+    width: 100%;
+    margin-left: 0;
+
     .show-password{
-      top: 75%;
-      left: 64%;
+      left: 70%;
+      margin-top: 70px;
+
     }
   }
 

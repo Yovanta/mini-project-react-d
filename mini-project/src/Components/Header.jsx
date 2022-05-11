@@ -1,48 +1,59 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import {AiOutlineClose} from "react-icons/ai";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
 import { FaBars } from "react-icons/fa";
-import Logo from '../assets/Logo'
-import styled from '@emotion/styled'
-
+import Logo from "../assets/Logo";
+import styled from "@emotion/styled";
 
 export default function Header() {
-  const [click, setClick] = useState(false)
+  const [click, setClick] = useState(false);
   const handleClickMenu = () => {
-    setClick(!click)
-  }
+    setClick(!click);
+  };
   console.log(click);
 
   return (
     <Wrapper>
-      <Link to='/'><Logo/></Link>
+      <Link to="/">
+        <Logo />
+      </Link>
 
       <HumbergerMenu onClick={() => handleClickMenu()}>
-        {click ? <AiOutlineClose />: <FaBars />}
+        {click ? <AiOutlineClose /> : <FaBars />}
       </HumbergerMenu>
 
-      <WrapperAllMenu className={click ? 'nav-menu show-nav-mobile' : 'nav-menu'}>
+      <WrapperAllMenu
+        className={click ? "nav-menu show-nav-mobile" : "nav-menu"}
+      >
         <WrapperMenu>
-          <Link to='/'><li> Home</li></Link>
-          <Link to='/about'><li> About</li></Link>
-          <Link to='/contact-us'><li>Contact Us</li></Link>
+          <Link to="/">
+            <li> Home</li>
+          </Link>
+          <Link to="/about">
+            <li> About</li>
+          </Link>
+          <Link to="/contact-us">
+            <li>Contact Us</li>
+          </Link>
         </WrapperMenu>
         <WrapperButton>
-          <Link to='/login'><li>Login</li></Link>
-          <Link to='/register'><Button>Sign up</Button></Link>
+          <Link to="/login">
+            <li>Login</li>
+          </Link>
+          <Link to="/register">
+            <Button>Sign up</Button>
+          </Link>
         </WrapperButton>
       </WrapperAllMenu>
-      
     </Wrapper>
-    
-  )
+  );
 }
 
 const Wrapper = styled.div`
   display: flex;
   column-gap: 20%;
 
-  .nav-menu{
+  .nav-menu {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -51,8 +62,8 @@ const Wrapper = styled.div`
   @media (max-width: 900px) {
     column-gap: 0;
   }
-  @media(max-width: 768px) {
-    .nav-menu{
+  @media (max-width: 768px) {
+    .nav-menu {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -64,11 +75,9 @@ const Wrapper = styled.div`
       left: -100%;
       opacity: 1;
       transition: all 0.5s ease;
-
     }
-
-    .nav-menu.show-nav-mobile{
-      background-color: #ADCE74;
+    .nav-menu.show-nav-mobile {
+      background-color: #adce74;
       border-radius: 10px;
       left: 45%;
       width: 50%;
@@ -77,45 +86,53 @@ const Wrapper = styled.div`
       z-index: 1;
     }
   }
-`
+
+  @media (max-width: 390px) {
+    .nav-menu {
+      margin-top: 16%;
+    }
+    .nav-menu.show-nav-mobile {
+      left: 40%;
+    }
+  }
+`;
 const WrapperMenu = styled.ul`
   display: flex;
   column-gap: 40px;
   margin-top: 20px;
-  margin-bottom: 80px; 
-  
+  margin-bottom: 80px;
+
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     margin: 0;
     row-gap: 20px;
-}
-`
+  }
+`;
 const WrapperAllMenu = styled.div`
   li {
     list-style: none;
-    text-decoration: none; 
+    text-decoration: none;
   }
   li:hover {
-    color: #FFF76A;
+    color: #fff76a;
     font-weight: bold;
     text-shadow: 0 0 3px #000;
     transition: all 0.2s ease-out;
-  }  
+  }
   @media (max-width: 768px) {
     position: relative;
     li:hover {
-      color: #FFF76A;
+      color: #fff76a;
       font-weight: bold;
       text-shadow: 0 0 3px #000;
       transition: all 0.2s ease-out;
-    } 
+    }
   }
-  
-`
+`;
 
 const Button = styled.button`
-  background-color: #FFF76A;
+  background-color: #fff76a;
   padding: 5px 20px;
   border-radius: 10px;
   border: 1px solid black;
@@ -124,7 +141,7 @@ const Button = styled.button`
     cursor: pointer;
     font-weight: bold;
   }
-`
+`;
 const WrapperButton = styled.div`
   display: flex;
   column-gap: 40px;
@@ -132,12 +149,12 @@ const WrapperButton = styled.div`
   margin-top: 15px;
   align-items: center;
   @media (max-width: 768px) {
-      display: flex;
-      flex-direction: column;
-      row-gap: 20px;
-      margin: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin: 0;
   }
-`
+`;
 
 const HumbergerMenu = styled.div`
   display: none;
@@ -152,4 +169,14 @@ const HumbergerMenu = styled.div`
     right: 10%;
     transform: translate(-100%, 75%)
     float: right;
-`
+  }
+
+  @media (max-width: 390px) {
+    display: block;
+    position: absolute;
+    margin-top: 16px;
+    right: 16%;
+    transform: translate(-100%, 75%)
+    float: right;
+  }
+`;

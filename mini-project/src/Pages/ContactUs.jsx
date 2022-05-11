@@ -41,7 +41,8 @@ const ContactPage = styled.div`
 const WrapperContactPage = styled.div`
     background-color: #ADCE74;
     margin: 0;
-    padding: 10px;
+    padding: 18px;
+
     
 `
 const ContactContent = styled.div`
@@ -54,8 +55,9 @@ const ContactContent = styled.div`
     flex-direction: column-reverse; 
     row-gap: 50px;
   }
-  @media (max-width: 428px) {
-    display: inline-block;
+  @media (max-width: 390px) {
+    display: flex;
+    flex-direction: column-reverse;
   }
 
 `
@@ -78,8 +80,14 @@ h1{
 @media (max-width: 900px) {
   margin-bottom: 20px;
 }
-@media (max-width: 428px) {
+
+@media (max-width: 390px) {
   margin-bottom: 20px;
+
+  h1{
+    display: flex;
+    flex-direction: column;
+  }
 }
 `
 

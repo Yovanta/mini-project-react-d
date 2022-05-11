@@ -61,7 +61,8 @@ export default function SaldoInput(props) {
   }
   console.log(props.incomes);
   console.log(props.totalIncomes);
-  console.log(props.incomes.saldoByHome);
+  
+  // console.log(props.incomes.saldoByHome);
 
   return (
     <div>
@@ -93,6 +94,10 @@ const WrapperTampilSaldo = styled.div`
   margin-bottom: 10px;
   font-size: 2rem;
   font-weight: bold;
+
+  @media (max-width: 390px) {
+    padding-left: 0;
+  }
 `
 const WrapperInput = styled.div`
 [type="number"]{
@@ -113,6 +118,10 @@ const Button = styled.div`
   border-radius: 10px;
   cursor: pointer;
   margin: 10px 5px;
+
+  @media (max-width: 390px) {
+    width: 36%;
+  }
 
 `;
 
