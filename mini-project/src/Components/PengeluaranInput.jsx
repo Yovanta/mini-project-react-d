@@ -42,7 +42,7 @@ export default function PengeluaranInput(props) {
   }
 
   return (
-    <WrapperInputPengeluaran>
+    <WrapperInputPengeluaran className="h-64">
       <WrapTitle>
         <h1>PENGELUARAN</h1>
       </WrapTitle>
@@ -61,7 +61,7 @@ export default function PengeluaranInput(props) {
 const WrapperInputPengeluaran = styled.div`
   border: 1px solid black;
   border-radius: 25px;
-  padding: 20px 25px;
+  padding: 10px 25px;
   align-items: center;
   width: 50%;
   box-shadow: 3px 3px #282c40;

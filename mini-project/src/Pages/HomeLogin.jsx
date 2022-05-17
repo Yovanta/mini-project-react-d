@@ -112,6 +112,10 @@ const WrapperHomeLogin = styled.div`
 
 const WrapperPengeluaran = styled.div`
   display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  width: 100%;
 
   @media (max-width: 800px) {
     display: block;

@@ -12,8 +12,6 @@ export default function SaldoInput(props) {
   const [isOpen, setIsOpen] = useState(true);
   const dispatch = useDispatch()
 
-  console.log(saldo)
-
   const _handleInputChange = (e) => {
     setSaldo({
       ...saldo,
@@ -59,16 +57,12 @@ export default function SaldoInput(props) {
   } else {
     editMode.display = "none";
   }
-  console.log(props.incomes);
-  console.log(props.totalIncomes);
-  
-  // console.log(props.incomes.saldoByHome);
 
   return (
     <div>
     <WrapperTampilSaldo >
       <button onClick={handleBukaInput} style={editMode}><Tambah/></button>
-      <h1 style={{display: 'flex', columnGap: '10px'}}>Saldo : {props.totalIncomes}</h1>
+      <h1>Saldo : {props.totalIncomes}</h1>
     </WrapperTampilSaldo>
       <WrapperInput>
         <div onSubmit={_handleAddNewSaldo} style={viewMode}>       
@@ -97,6 +91,9 @@ const WrapperTampilSaldo = styled.div`
 
   @media (max-width: 390px) {
     padding-left: 0;
+    h1{
+      font-size: 1.8rem;
+    }
   }
 `
 const WrapperInput = styled.div`

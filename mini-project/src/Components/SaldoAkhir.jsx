@@ -36,4 +36,8 @@ const WrapSaldo = styled.div`
   display: flex;
   column-gap: 50px; 
   justify-content: space-between;
+
+  @media (max-width: 390px) {
+    column-gap: 30px;
+  }
 `

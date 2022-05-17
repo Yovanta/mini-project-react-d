@@ -30,7 +30,6 @@ const WrapperExpenseItem = styled.div`
   border-radius: 25px;
   background-color: #fff;
   box-shadow: 3px 3px #282c40;
-  ;
 
   @media (max-width: 900px) {
     padding: 10px;
@@ -60,7 +59,7 @@ const ItemPengeluaran = styled.div`
   padding: 10px 15px;
   align-items: center;
   box-shadow: 3px 3px #282c40;
-  column-gap: 150px;
+  column-gap: 100px;
 
   @media (max-width: 900px) {
     column-gap: 35px;
