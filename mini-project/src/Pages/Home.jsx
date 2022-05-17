@@ -68,6 +68,18 @@ const HomeContent = styled.div`
   display: flex;
   font-size: 3rem;
   margin: 35px 0;
+  animation: transititionIn 0.75s;
+
+  @keyframes transititionIn {
+    from {
+      opacity: 0;
+      transform: rotateX(-10deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
 
   @media (max-width: 900px) {
     display: flex;

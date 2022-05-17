@@ -214,6 +214,18 @@ const WrapperInputRegister = styled.div`
   width: 50%;
   border-radius: 10px;
   row-gap: 8px;
+  animation: transititionIn 0.75s;
+
+  @keyframes transititionIn {
+    from {
+      opacity: 0;
+      transform: rotateX(-10deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
 
   h1 {
     text-shadow: 2px 3px #636161;

@@ -22,7 +22,7 @@ const WrapperNotFound = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 60px;
-  padding: 50px 0;
+  padding: 60px 0;
   background-color: #000;
   display: relative;
 `;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaBars } from "react-icons/fa";
@@ -10,7 +10,6 @@ export default function HeaderLogin() {
   const handleClickMenu = () => {
     setClick(!click);
   };
-  console.log(click);
 
   return (
     <Wrapper>
@@ -34,7 +33,7 @@ export default function HeaderLogin() {
             <li>Contact Us</li>
           </Link>
         </WrapMenuList>
-        <Button>Logout</Button>
+        <Link to='/account'><Button>Account</Button></Link>
       </WrapperMenu>
       <div></div>
     </Wrapper>

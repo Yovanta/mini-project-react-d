@@ -1,12 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
-import { FaInstagram, FaPhoneAlt, FaRegEnvelope } from "react-icons/fa";
-
-import image from "../assets/image.png";
+import Cookies from "js-cookie";
 
 import HeaderLogin from "../Components/HeaderLogin";
 
-export default function ContactUsLogin() {
+export default function Account() {
+  let navigation = useNavigate();
+
+  const [userData, setUserData] = useState({});
+
+  useEffect(() =>{
+    const userLogin = Cookies.get("user");
+    const user = JSON.parse(userLogin);
+    console.log(user);
+    setUserData(user);
+  }, [])
+
+  const handleClickLogout = () => {
+    Cookies.remove('user', { path: '/login' }) 
+    return navigation('/login')
+  }
+
+  const handleClickEdit = () => {
+    return navigation("/edit-profile");
+  }
+
   return (
     <WrapperContactPage>
       <ContactPage>
@@ -14,27 +33,18 @@ export default function ContactUsLogin() {
         <ContactContent>
           <ContactContentTitle>
             <h1>
-              Contact Us <h1 style={{ color: "#FFF76A" }}>BudgetIn</h1>
-            </h1>
-            <ContactContentDesc>
-              <a href="https://www.instagram.com/" target={"_blank"}>
-                <InfoContact>
-                  <FaInstagram /> budgetInWeb
-                </InfoContact>
-              </a>
-              <InfoContact>
-                <FaPhoneAlt />
-                +62-822-9090-3232
-              </InfoContact>
-              <a href="https://mail.google.com/" target={"_blank"}>
-                <InfoContact>
-                  <FaRegEnvelope />
-                  budgetinweb@gmail.com
-                </InfoContact>
-              </a>
-            </ContactContentDesc>
+              Welcome <h1 style={{ color: "#FFF76A" }}>{userData.name}</h1>
+            </h1> 
+            <div>
+              <p>{userData.username}</p>
+              <p>{userData.email}</p>
+            </div>
+            <Button onClick={handleClickEdit}>edit profile</Button>
+
+            <div>
+              <button className="button-logout" onClick={handleClickLogout}>Logout</button>
+            </div>
           </ContactContentTitle>
-          <img src={image} alt="contact us" />
         </ContactContent>
       </ContactPage>
     </WrapperContactPage>
@@ -58,22 +68,8 @@ const WrapperContactPage = styled.div`
 `;
 const ContactContent = styled.div`
   display: flex;
-  font-size: 3rem;
-  margin: 35px 0;
-  column-gap: 150px;
-  animation: transititionIn 0.75s;
+  justify-content: center;
 
-  @keyframes transititionIn {
-    from {
-      opacity: 0;
-      transform: rotateX(-10deg);
-    }
-    to {
-      opacity: 1;
-      transform: rotateX(0);
-    }
-  }
-  
   @media (max-width: 900px) {
     display: flex;
     flex-direction: column-reverse;
@@ -100,6 +96,23 @@ const ContactContentTitle = styled.div`
     column-gap: 20px;
     text-shadow: 2px 3px #636161;
   }
+
+  p {
+    font-weight: bold;
+  }
+
+  .button-logout{
+    background-color: red;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px 20px;
+    color: white;
+  }
+
+  .button-logout:hover {
+    font-weight: bold;
+  }
+
   @media (max-width: 900px) {
     margin-bottom: 20px;
   }
@@ -112,6 +125,19 @@ const ContactContentTitle = styled.div`
     }
   }
 `;
+
+const Button = styled.button`
+  background-color: #fff76a;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px 20px;
+
+  :hover {
+    font-weight: bold;
+  }
+
+
+`
 
 const ContactContentDesc = styled.div`
   font-size: 1.2rem;

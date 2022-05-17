@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import useQueryUser from "../Components/Hooks/useQueryUser";
-import Cookies from "universal-cookie";
+import Cookies from 'js-cookie'
 import styled from "@emotion/styled";
 import background from "../assets/backgroundLogin.png";
 
@@ -20,16 +20,16 @@ export default function Login() {
   const { getUser, data, loading, error } = useQueryUser();
 
   let navigation = useNavigate();
-  const cookies = new Cookies();
 
   useEffect(() => {
     if (data?.user.length === 1) {
       console.log("data: ", data);
-      cookies.set("user", true, { path: "/login" });
+      const user = JSON.stringify(data.user[0]);
+      Cookies.set("user", user, {expires: 1, path: "/login" });
       return navigation("/home-login");
     }
   }, [data]);
-
+  
   const handleInputUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -80,7 +80,7 @@ export default function Login() {
               <p>Login Failed</p>
             )}
 
-            <Button onClick={handleClickLogin}>LOGIN</Button>
+            <Button onClick={handleClickLogin} dataByLogin={data}>LOGIN</Button>
 
             <p>
               Don't have an account?{" "}
@@ -122,6 +122,18 @@ const WrapperInputLogin = styled.div`
   border-radius: 10px;
   row-gap: 20px;
   margin-left: 55%;
+  animation: transititionIn 0.75s;
+
+  @keyframes transititionIn {
+    from {
+      opacity: 0;
+      transform: rotateX(-10deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
 
   h1 {
     text-shadow: 2px 3px #636161;

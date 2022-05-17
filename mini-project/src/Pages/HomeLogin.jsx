@@ -90,6 +90,18 @@ const Home = styled.div`
   margin: 20px;
   border-radius: 10px;
   padding: 20px;
+  animation: transititionIn 0.75s;
+
+  @keyframes transititionIn {
+    from {
+      opacity: 0;
+      transform: rotateX(-10deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
 `;
 
 const WrapperHomeLogin = styled.div`
