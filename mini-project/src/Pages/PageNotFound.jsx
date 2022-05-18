@@ -25,6 +25,14 @@ const WrapperNotFound = styled.div`
   padding: 60px 0;
   background-color: #000;
   display: relative;
+  height: 100vh;
+
+  @media (max-width: 900px) {
+    height: 100vh;
+  }
+  @media (max-width: 390px) {
+    height: 100%;
+  }
 `;
 
 const WrapperImage = styled.div`

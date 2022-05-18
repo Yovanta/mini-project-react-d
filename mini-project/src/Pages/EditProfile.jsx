@@ -50,7 +50,8 @@ export default function EditProfile() {
       });
       console.log(data);
       Cookies.set("user", JSON.stringify(data), {
-        expires: 1, path: "/login",
+        expires: 1,
+        path: "/login",
       });
 
       alert("Update Success");
@@ -112,18 +113,21 @@ export default function EditProfile() {
                   placeholder={dataUser.password}
                   onChange={_handleChange}
                   value={data.password}
-                  />
+                />
                 <button className="show-password" onClick={handleClickPassword}>
                   {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
                 </button>
               </div>
 
-              <Link to="/account"><Button type="submit" onClick={_handleSubmitEdit}>
-              Update
-              </Button></Link>
-              <Link to="/account"> <Button>
-                Cancel
-              </Button></Link>
+              <Link to="/account">
+                <Button type="submit" onClick={_handleSubmitEdit}>
+                  Update
+                </Button>
+              </Link>
+              <Link to="/account">
+                {" "}
+                <Button>Cancel</Button>
+              </Link>
             </WrapperInputEdit>
           </ContactContentTitle>
         </ContactContent>

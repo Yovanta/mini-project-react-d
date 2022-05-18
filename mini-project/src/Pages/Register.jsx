@@ -167,7 +167,7 @@ export default function Register() {
                 value={data.password}
                 placeholder="password"
                 onChange={handleChangeInput}
-                />
+              />
               <button className="show-password" onClick={handleClickPassword}>
                 {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
               </button>

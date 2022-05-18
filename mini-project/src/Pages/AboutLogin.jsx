@@ -43,7 +43,15 @@ const AboutPage = styled.div`
 const WrapperAboutPage = styled.div`
   background-color: #adce74;
   margin: 0;
-  padding: 18px;
+  padding: 30px;
+  height: 100vh;
+
+  @media (max-width: 900px) {
+    height: 100%;
+  }
+  @media (max-width: 390px) {
+    height: 100%;
+  }
 `;
 const AboutContent = styled.div`
   display: flex;
@@ -61,7 +69,7 @@ const AboutContent = styled.div`
       transform: rotateX(0);
     }
   }
-  
+
   @media (max-width: 900px) {
     display: flex;
     flex-direction: column-reverse;
@@ -95,7 +103,7 @@ const AboutContentTitle = styled.div`
   @media (max-width: 390px) {
     margin-bottom: 20px;
 
-    h1{
+    h1 {
       display: flex;
       flex-direction: column;
     }

@@ -69,7 +69,7 @@ const AboutContent = styled.div`
       transform: rotateX(0);
     }
   }
-  
+
   @media (max-width: 900px) {
     display: flex;
     flex-direction: column-reverse;
@@ -103,7 +103,7 @@ const AboutContentTitle = styled.div`
   @media (max-width: 390px) {
     margin-bottom: 20px;
 
-    h1{
+    h1 {
       display: flex;
       flex-direction: column;
     }

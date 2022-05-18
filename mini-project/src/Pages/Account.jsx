@@ -10,21 +10,21 @@ export default function Account() {
 
   const [userData, setUserData] = useState({});
 
-  useEffect(() =>{
+  useEffect(() => {
     const userLogin = Cookies.get("user");
     const user = JSON.parse(userLogin);
     console.log(user);
     setUserData(user);
-  }, [])
+  }, []);
 
   const handleClickLogout = () => {
-    Cookies.remove('user', { path: '/login' }) 
-    return navigation('/login')
-  }
+    Cookies.remove("user", { path: "/login" });
+    return navigation("/login");
+  };
 
   const handleClickEdit = () => {
     return navigation("/edit-profile");
-  }
+  };
 
   return (
     <WrapperContactPage>
@@ -34,7 +34,7 @@ export default function Account() {
           <ContactContentTitle>
             <h1>
               Welcome <h1 style={{ color: "#FFF76A" }}>{userData.name}</h1>
-            </h1> 
+            </h1>
             <div>
               <p>{userData.username}</p>
               <p>{userData.email}</p>
@@ -42,7 +42,9 @@ export default function Account() {
             <Button onClick={handleClickEdit}>edit profile</Button>
 
             <div>
-              <button className="button-logout" onClick={handleClickLogout}>Logout</button>
+              <button className="button-logout" onClick={handleClickLogout}>
+                Logout
+              </button>
             </div>
           </ContactContentTitle>
         </ContactContent>
@@ -64,16 +66,15 @@ const ContactPage = styled.div`
 const WrapperContactPage = styled.div`
   background-color: #adce74;
   margin: 0;
-  
   padding: 40px;
-    height: 100vh;
-    
-    @media (max-width: 900px) {
-      height: 100%;
-    }
-    @media (max-width: 390px) {
-      height: 100%;
-    }
+  height: 100vh;
+
+  @media (max-width: 900px) {
+    height: 100%;
+  }
+  @media (max-width: 390px) {
+    height: 100%;
+  }
 `;
 const ContactContent = styled.div`
   display: flex;
@@ -110,7 +111,7 @@ const ContactContentTitle = styled.div`
     font-weight: bold;
   }
 
-  .button-logout{
+  .button-logout {
     background-color: red;
     border: 1px solid white;
     border-radius: 10px;
@@ -127,8 +128,8 @@ const ContactContentTitle = styled.div`
   }
   @media (max-width: 390px) {
     margin-bottom: 20px;
-  
-    h1{
+
+    h1 {
       display: flex;
       flex-direction: column;
     }
@@ -144,9 +145,7 @@ const Button = styled.button`
   :hover {
     font-weight: bold;
   }
-
-
-`
+`;
 
 const ContactContentDesc = styled.div`
   font-size: 1.2rem;

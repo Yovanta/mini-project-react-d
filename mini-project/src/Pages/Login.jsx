@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import useQueryUser from "../Components/Hooks/useQueryUser";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 import styled from "@emotion/styled";
 import background from "../assets/backgroundLogin.png";
 
@@ -25,11 +25,11 @@ export default function Login() {
     if (data?.user.length === 1) {
       console.log("data: ", data);
       const user = JSON.stringify(data.user[0]);
-      Cookies.set("user", user, {expires: 1, path: "/login" });
+      Cookies.set("user", user, { expires: 1, path: "/login" });
       return navigation("/home-login");
     }
   }, [data]);
-  
+
   const handleInputUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -58,7 +58,9 @@ export default function Login() {
         <Header />
         <div>
           <WrapperInputLogin>
-            <h1 className="text-5xl font-bold text-center m-4 mb-6">Login User</h1>
+            <h1 className="text-5xl font-bold text-center m-4 mb-6">
+              Login User
+            </h1>
 
             <InputStyled
               type="text"
@@ -70,7 +72,7 @@ export default function Login() {
                 type={isPaswordShown ? "text" : "password"}
                 placeholder="password"
                 onChange={handelInputPassword}
-                />
+              />
               <button className="show-password" onClick={handleClickPassword}>
                 {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
               </button>
@@ -82,7 +84,9 @@ export default function Login() {
               <p>Login Failed</p>
             )}
 
-            <Button onClick={handleClickLogin} dataByLogin={data}>LOGIN</Button>
+            <Button onClick={handleClickLogin} dataByLogin={data}>
+              LOGIN
+            </Button>
 
             <p>
               Don't have an account?{" "}
@@ -172,7 +176,7 @@ const WrapperInputLogin = styled.div`
     width: 100%;
     margin-left: 0;
 
-    p{
+    p {
       text-align: center;
       font-size: 1rem;
     }
