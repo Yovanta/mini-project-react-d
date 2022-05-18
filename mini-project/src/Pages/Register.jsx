@@ -159,16 +159,19 @@ export default function Register() {
               onChange={handleChangeInput}
             />
             <span className="text-red-600 mb-2 text-center">{error2}</span>
-            <InputStyled
-              type={isPaswordShown ? "text" : "password"}
-              name="password"
-              value={data.password}
-              placeholder="password"
-              onChange={handleChangeInput}
-            />
-            <button className="show-password" onClick={handleClickPassword}>
-              {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
-            </button>
+
+            <div className="password">
+              <InputStyled
+                type={isPaswordShown ? "text" : "password"}
+                name="password"
+                value={data.password}
+                placeholder="password"
+                onChange={handleChangeInput}
+                />
+              <button className="show-password" onClick={handleClickPassword}>
+                {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
+              </button>
+            </div>
             <span className="text-red-600 mb-2 text-center">{error3}</span>
 
             <Link to="/login">
@@ -234,29 +237,24 @@ const WrapperInputRegister = styled.div`
   }
   .show-password {
     cursor: pointer;
-    position: absolute;
-    top: 83%;
-    left: 42%;
   }
+
+  .password {
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-left: 20px;
+  }
+
   @media (max-width: 900px) {
     width: 80%;
-    .show-password {
-      top: 90%;
-      left: 65%;
-    }
   }
 
   @media (max-width: 390px) {
     width: 100%;
     margin-left: 0;
-
-    .show-password{
-      left: 70%;
-      margin-top: 70px;
-
-    }
   }
-
 `;
 
 const InputStyled = styled.input`

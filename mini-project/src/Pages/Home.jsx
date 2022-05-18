@@ -42,7 +42,14 @@ const HomePage = styled.div`
 const WrapperHomePage = styled.div`
   background-color: #adce74;
   margin: 0;
-  padding: 18px;
+  padding: 30px;
+  height: 100vh;
+  @media (max-width: 900px) {
+    height: 100%;
+  }
+  @media (max-width: 390px) {
+    height: 100%;
+  }
 `;
 
 const Button = styled.button`

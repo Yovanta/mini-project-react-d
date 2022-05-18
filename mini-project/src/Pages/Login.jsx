@@ -65,14 +65,16 @@ export default function Login() {
               placeholder="username"
               onChange={handleInputUsername}
             />
-            <InputStyled
-              type={isPaswordShown ? "text" : "password"}
-              placeholder="password"
-              onChange={handelInputPassword}
-            />
-            <button className="show-password" onClick={handleClickPassword}>
-              {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
-            </button>
+            <div className="password">
+              <InputStyled
+                type={isPaswordShown ? "text" : "password"}
+                placeholder="password"
+                onChange={handelInputPassword}
+                />
+              <button className="show-password" onClick={handleClickPassword}>
+                {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
+              </button>
+            </div>
 
             {data?.user.length === 1 ? (
               <p>Login Success</p>
@@ -108,7 +110,15 @@ const LoginPage = styled.div`
 const WrapperLoginPage = styled.div`
   background-color: #adce74;
   margin: 0;
-  padding: 10px;
+  padding: 20px;
+  height: 100vh;
+
+  @media (max-width: 900px) {
+    height: 100%;
+  }
+  @media (max-width: 390px) {
+    height: 100%;
+  }
 `;
 
 const WrapperInputLogin = styled.div`
@@ -143,19 +153,19 @@ const WrapperInputLogin = styled.div`
 
   .show-password {
     cursor: pointer;
-    position: absolute;
-    top: 64%;
-    right: 14%;
+  }
+
+  .password {
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-left: 20px;
   }
 
   @media (max-width: 900px) {
     width: 80%;
     margin-left: 20%;
-
-    .show-password {
-      top: 70%;
-      right: 16%;
-    }
   }
 
   @media (max-width: 390px) {
@@ -166,17 +176,11 @@ const WrapperInputLogin = styled.div`
       text-align: center;
       font-size: 1rem;
     }
-
-    .show-password {
-      top: 73%;
-      left: 70%;
-    }
   }
 `;
 
 const InputStyled = styled.input`
   width: 80%;
-  margin-bottom: 20px;
   border: 2px solid black;
   border-radius: 8px;
   padding: 10px;

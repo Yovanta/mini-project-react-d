@@ -78,7 +78,7 @@ export default function EditProfile() {
               Edit <h1 style={{ color: "#FFF76A" }}>Profile</h1>
             </h1>
 
-            <WrapperInputEdit onSubmit={_handleSubmitEdit}>
+            <WrapperInputEdit onSubmit={() => _handleSubmitEdit()}>
               <label>Name</label>
               <InputStyled
                 type="text"
@@ -104,23 +104,26 @@ export default function EditProfile() {
                 value={data.email}
               />
               <label>Password</label>
-              <InputStyled
-                type={isPaswordShown ? "text" : "password"}
-                name="password"
-                placeholder={dataUser.password}
-                onChange={_handleChange}
-                value={data.password}
-              />
-              <button className="show-password" onClick={handleClickPassword}>
-                {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
-              </button>
 
-              <Button type="submit" onClick={_handleSubmitEdit}>
-                Update
-              </Button>
-              <Button>
-                <Link to="/account">Cancel</Link>
-              </Button>
+              <div className="password">
+                <InputStyled
+                  type={isPaswordShown ? "text" : "password"}
+                  name="password"
+                  placeholder={dataUser.password}
+                  onChange={_handleChange}
+                  value={data.password}
+                  />
+                <button className="show-password" onClick={handleClickPassword}>
+                  {isPaswordShown ? <AiFillEyeInvisible /> : <AiFillEye />}
+                </button>
+              </div>
+
+              <Link to="/account"><Button type="submit" onClick={_handleSubmitEdit}>
+              Update
+              </Button></Link>
+              <Link to="/account"> <Button>
+                Cancel
+              </Button></Link>
             </WrapperInputEdit>
           </ContactContentTitle>
         </ContactContent>
@@ -206,9 +209,14 @@ const WrapperInputEdit = styled.form`
 
   .show-password {
     cursor: pointer;
-    position: absolute;
-    top: 105%;
-    left: 65%;
+  }
+
+  .password {
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-left: 20px;
   }
 
   label {
@@ -217,20 +225,11 @@ const WrapperInputEdit = styled.form`
   }
   @media (max-width: 900px) {
     width: 80%;
-    .show-password {
-      top: 105%;
-      left: 72%;
-    }
   }
 
   @media (max-width: 390px) {
     width: 100%;
     margin-left: 0;
-
-    .show-password {
-      left: 68%;
-      margin-top: 40%;
-    }
   }
 `;
 
@@ -245,16 +244,16 @@ const Button = styled.button`
   background-color: #fff76a;
   text-align: center;
   padding: 10px 30px;
-  width: 40%;
+  width: 100%;
   border-radius: 20px;
   cursor: pointer;
 
   @media (max-width: 900px) {
     padding: 10px 30px;
-    width: 40%;
+    width: 100%;
   }
   @media (max-width: 390px) {
     padding: 10px 30px;
-    width: 50%;
+    width: 100%;
   }
 `;
